@@ -11,7 +11,6 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/chats")
-@CrossOrigin("*")
 public class ChatMessageRestController {
 
     private final ChatMessageService service;

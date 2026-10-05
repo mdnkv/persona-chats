@@ -2,7 +2,7 @@ package dev.mednikov.persona.chats.services;
 
 import dev.mednikov.persona.chats.domain.ChatMessageResponse;
 import dev.mednikov.persona.chats.domain.CreateChatMessageRequest;
-import dev.mednikov.persona.chats.mappers.ChatMessageResponseDtoMapper;
+import dev.mednikov.persona.chats.mappers.ChatMessageResponseMapper;
 import dev.mednikov.persona.chats.models.ChatMessage;
 import dev.mednikov.persona.chats.models.MessageRole;
 import dev.mednikov.persona.chats.repositories.ChatMessageRepository;
@@ -17,9 +17,9 @@ public class ChatMessageServiceImpl implements ChatMessageService{
 
     private final AIService aiService;
     private final ChatMessageRepository chatMessageRepository;
-    private final ChatMessageResponseDtoMapper mapper;
+    private final ChatMessageResponseMapper mapper;
 
-    public ChatMessageServiceImpl(AIService aiService, ChatMessageRepository chatMessageRepository, ChatMessageResponseDtoMapper mapper) {
+    public ChatMessageServiceImpl(AIService aiService, ChatMessageRepository chatMessageRepository, ChatMessageResponseMapper mapper) {
         this.aiService = aiService;
         this.chatMessageRepository = chatMessageRepository;
         this.mapper = mapper;

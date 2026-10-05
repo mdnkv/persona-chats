@@ -5,7 +5,7 @@ import dev.mednikov.persona.chats.models.ChatMessage;
 import org.mapstruct.Mapper;
 
 @Mapper
-public interface ChatMessageResponseDtoMapper {
+public interface ChatMessageResponseMapper {
 
     ChatMessageResponse map (ChatMessage chatMessage);
 

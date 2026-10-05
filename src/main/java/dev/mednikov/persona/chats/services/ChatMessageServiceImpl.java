@@ -15,10 +15,12 @@ import java.util.UUID;
 @Service
 public class ChatMessageServiceImpl implements ChatMessageService{
 
+    private final AIService aiService;
     private final ChatMessageRepository chatMessageRepository;
     private final ChatMessageResponseDtoMapper mapper;
 
-    public ChatMessageServiceImpl(ChatMessageRepository chatMessageRepository, ChatMessageResponseDtoMapper mapper) {
+    public ChatMessageServiceImpl(AIService aiService, ChatMessageRepository chatMessageRepository, ChatMessageResponseDtoMapper mapper) {
+        this.aiService = aiService;
         this.chatMessageRepository = chatMessageRepository;
         this.mapper = mapper;
     }
@@ -32,10 +34,15 @@ public class ChatMessageServiceImpl implements ChatMessageService{
         userMessage.setPersonaId(request.personaId());
         userMessage.setCreatedAt(LocalDateTime.now());
 
-        // Create persona message
+        // Get previous messages
         // TODO
+
+        // Get AI answer
+        String answer = this.aiService.getPersonaAnswer(request.content());
+
+        // Create persona message
         ChatMessage personaMessage = new ChatMessage();
-        personaMessage.setContent("Oh! Very interesting to hear that");
+        personaMessage.setContent(answer);
         personaMessage.setPersonaId(request.personaId());
         personaMessage.setMessageRole(MessageRole.PERSONA);
         personaMessage.setCreatedAt(LocalDateTime.now());

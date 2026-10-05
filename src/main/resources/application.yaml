@@ -8,5 +8,9 @@ spring:
   jpa:
     hibernate:
       ddl-auto: validate
+  ai:
+    ollama:
+      chat:
+        model: llama3.1
 server:
   port: 8001

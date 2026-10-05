@@ -9,8 +9,16 @@ spring:
     hibernate:
       ddl-auto: validate
   ai:
-    ollama:
-      chat:
-        model: llama3.1
+    model:
+      chat: bedrock-converse
+    bedrock:
+      aws:
+        access-key: ${AWS_ACCESS_KEY_ID}
+        secret-key: ${AWS_SECRET_ACCESS_KEY}
+        region: ${AWS_REGION}
+      converse:
+        chat:
+          enabled: true
+          model: ${AWS_MODEL}
 server:
   port: 8001

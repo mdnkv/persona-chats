@@ -20,5 +20,14 @@ spring:
         chat:
           enabled: true
           model: ${AWS_MODEL}
+  cloud:
+    consul:
+      discovery:
+        prefer-ip-address: true
 server:
   port: 8002
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
